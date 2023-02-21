@@ -8,13 +8,12 @@
 function Card(props) {
    //props = {name:'Rick', gender... }
    return (
-      <div class="cardCl">
-         <br></br>
-         <button class='boton' onClick={() => alert('Emulamos que se cierra la card')}>-- X --</button>
-         <h2>{props.name}</h2>
-         <h2>{props.species}</h2>
-         <h2>{props.gender}</h2>
-         <img class="imgChar" src={props.image} alt="Rick" />
+      <div class="cardCl">      
+         <button className='boton' onClick={props.onClose}>. X .</button>
+         <span className='titulo2'>{props.name}</span>
+         <span className='titulo2'>{props.species}</span>
+         <span className='titulo2'>{props.gender}</span>
+         <img className="imgChar" src={props.image} alt="Rick" />
       </div>
    );
 

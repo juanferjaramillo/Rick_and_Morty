@@ -24,7 +24,7 @@ const characters = [
 
 export const Rick = {
   id: 1,
-  name: "Rick Sanchez",
+  name: "Rick Sánchez",
   species: "Human",
   gender: "Male",
   image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
