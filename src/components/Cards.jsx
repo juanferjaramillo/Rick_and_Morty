@@ -17,7 +17,6 @@ function Cards( {characters} ) {
             gender={gender}
             image={image}
             onClose={onClose}
-            giro = {giro[id-1]}
           />
         );
       })}

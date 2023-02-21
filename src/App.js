@@ -13,6 +13,7 @@ function App () {
           species={Rick.species}
           gender={Rick.gender}
           image={Rick.image}
+          id={Rick.id}
           onClose={() => alert('Emulamos que se cierra la card')}
         />
       </div>

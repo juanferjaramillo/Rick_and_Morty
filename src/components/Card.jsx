@@ -9,11 +9,11 @@ function Card(props) {
    //props = {name:'Rick', gender... }
    return (
       <div class="cardCl">      
-         <button className='boton' onClick={props.onClose}>. X .</button>
-         <span className='titulo2'>{props.name}</span>
-         <span className='titulo2'>{props.species}</span>
-         <span className='titulo2'>{props.gender}</span>
+         <button className='botonX' onClick={props.onClose}> X </button>
+         <span className='tituloName'>{props.name}</span>
          <img className="imgChar" src={props.image} alt="Rick" />
+         <span className='titulo2'>{props.species + ' ' + props.gender}</span>
+         {/* <span className='titulo2'>{props.gender}</span> */}
       </div>
    );
 
