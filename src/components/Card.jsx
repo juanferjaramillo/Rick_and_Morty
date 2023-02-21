@@ -4,7 +4,7 @@
 // gender: Género
 // image: Imagen
 //onClose: La función que se va a ejecutar cuando el usuario haga click en el botón de cerrar.
-
+ 
 function Card(props) {
    //props = {name:'Rick', gender... }
    return (
