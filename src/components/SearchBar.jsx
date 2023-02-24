@@ -13,7 +13,7 @@ function SearchBar(props) {
     
   return (
     <div>
-      <input className={style.searchBox} placeholder="personaje" type="search" onChange={handleInput}/> 
+      <input className={style.searchBox} placeholder="ID del personaje" type="search" onChange={handleInput}/> 
       <button className={style.boton} onClick={() => props.onSearch(char)}>Agregar</button>
     </div>
   );

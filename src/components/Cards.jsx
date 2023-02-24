@@ -5,6 +5,8 @@ import style from './cards.module.css'
 
 function Cards( {characters, onClose}) {
    //characters =[ {name:'Rick',gender...}, {name:'Rick',gender...}, ---- ]
+
+ 
   return (
     <div className={style.CardsCl}>
       {characters.map(({ name, species, gender, image, id }) => {

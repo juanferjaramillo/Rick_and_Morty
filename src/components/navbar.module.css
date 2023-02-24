@@ -1,0 +1,12 @@
+.navBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 3vw;
+}
+
+@media (max-width: 720px) {
+    .navBar {
+        flex-direction: column;
+    }
+}

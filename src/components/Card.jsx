@@ -13,7 +13,7 @@ function Card(props) {
 //   };
 
   return (
-    <div className={style.cardCl}>
+    <div className={style.cardCl} style={{ transform: `rotate(${Math.round(20-40*Math.random())}deg)` }}>
       <button
         className={style.botonX}
         onClick={()=>props.onClose(props.id)}
@@ -24,7 +24,7 @@ function Card(props) {
       </button>
       <span className={style.tituloName}>{props.name}</span>
       <img className={style.imgChar} src={props.image} alt="Rick" />
-      <span className={style.titulo2}>
+      <span className={style.titulo2} >
         {props.species + " " + props.gender}
       </span>
       {/* <span className='titulo2'>{props.gender}</span> */}
