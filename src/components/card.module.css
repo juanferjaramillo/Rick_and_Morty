@@ -15,13 +15,13 @@
 
 @keyframes rotarCard {
   0% {
-    rotate: 1deg;
+    transform: rotate(-0.3deg);
   }
   50% {
-    rotate: -2deg;
+    transform: rotate(0.6deg);
   }
   100% {
-    rotate: deg;
+    transform: rotate(-0.3deg);
   }
 }
 
@@ -33,16 +33,16 @@
 .imgChar:hover {
    cursor: pointer;
   animation-name: rotarPic;
-  animation-duration: 0.2s;
+  animation-duration: 0.5s;
   animation-iteration-count: 1;
 }
 
 @keyframes rotarPic {
   0% {
-    rotate: 360deg;
+    transform: rotateX(0deg);
   }
   100% {
-    rotate: 0deg;
+    transform: rotateX(360deg);
   }
 }
 
