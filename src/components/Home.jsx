@@ -1,9 +1,15 @@
-import React from "react";  
-import Cards from "./Cards";
+import React from "react";
+import Cards from "./Cards.jsx";
+import NavBar from "./NavBar.jsx";
 
-function Home() {
-    return(
-        <Cards />
-    );
-};
-export default Home
+//characters = [ { id:1, name:'xx', species:'xx', gender:'xx' }, {},.. ]
+//setea el estado inicial del array characters:
+
+function Home({characters, onClose}) {
+  return (
+    <div>
+      <Cards characters={characters} onClose={onClose} />
+    </div>
+  );
+}
+export default Home;

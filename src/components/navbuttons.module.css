@@ -1,5 +1,13 @@
 .contenedor {
-    min-width: '2000px';
-    border-color: white;
-    border-style: solid;
+  display: flex;
+  flex-direction: column;
+  min-width: 10vw;
+}
+
+.navBut {
+  background-color: aqua;
+  color: blueviolet;
+  border-radius: 40%;
+  margin: 1vw;
+  padding: 5%;
 }
