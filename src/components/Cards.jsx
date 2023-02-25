@@ -3,7 +3,7 @@ import style from './cards.module.css'
 
 // va a recibir un arreglo de personajes (con todos sus datos), y va a utilizar un componente Card (reutilizando el mismo que ya hicimos en el punto anterior) por cada uno de ellos, pasándole las props correspondientes.
 
-function Cards( {characters, onClose}) {
+function Cards( {characters, onClose, updateDetail}) {
    //characters =[ {name:'Rick',gender...}, {name:'Rick',gender...}, ---- ]
 
  
@@ -18,6 +18,7 @@ function Cards( {characters, onClose}) {
             gender={gender}
             image={image}
             onClose={onClose}
+            updateIdDetail={updateDetail}
           />
         );
       })}

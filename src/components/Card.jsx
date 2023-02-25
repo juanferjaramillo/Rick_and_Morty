@@ -1,5 +1,6 @@
 import style from "./card.module.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   //props = {name:'Rick', gender... }
@@ -23,7 +24,9 @@ function Card(props) {
         X{" "}
       </button>
       <span className={style.tituloName}>{props.name}</span>
-      <img className={style.imgChar} src={props.image} alt="Rick" />
+      <Link to={`/detail/${props.id}`}>
+      <img className={style.imgChar} src={props.image} alt="Rick" onClick={()=>props.updateDetail(props.id)}/>
+      </Link>
       <span className={style.titulo2} >
         {props.species + " " + props.gender}
       </span>
@@ -32,18 +35,3 @@ function Card(props) {
   );
 }
 export default Card;
-
-// function Card(props) {
-//    //props = {name:'Rick', gender... }
-//    return (
-//       <div class={"cardCl"}>
-//          {/* <button className='botonX' onClick={props.onClose}> X </button> */}
-//          <button className='botonX' onClick={()=>alert('Oh, aun no podemos cerrar esta tarjeta!')}> X </button>
-//          <span className='tituloName'>{props.name}</span>
-//          <img className="imgChar" src={props.image} alt="Rick" />
-//          <span className='titulo2'>{props.species + ' ' + props.gender}</span>
-//          {/* <span className='titulo2'>{props.gender}</span> */}
-//       </div>
-//    );
-
-// }

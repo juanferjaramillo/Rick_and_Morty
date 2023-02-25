@@ -5,10 +5,10 @@ import NavBar from "./NavBar.jsx";
 //characters = [ { id:1, name:'xx', species:'xx', gender:'xx' }, {},.. ]
 //setea el estado inicial del array characters:
 
-function Home({characters, onClose}) {
+function Home({characters, onClose, updateDetail}) {
   return (
     <div>
-      <Cards characters={characters} onClose={onClose} />
+      <Cards characters={characters} onClose={onClose} updateIdDetail={updateDetail} />
     </div>
   );
 }

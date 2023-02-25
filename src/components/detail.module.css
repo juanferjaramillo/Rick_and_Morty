@@ -1,0 +1,9 @@
+.contenedor {
+    display: flex;
+    background-color: darkseagreen;
+    margin: auto;
+    max-width: 80%;
+    justify-content: space-around;
+    padding: 2vw;
+    border-radius: 2vw;
+}

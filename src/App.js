@@ -1,9 +1,10 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import style from "./App.module.css";
 import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import NavBar from "./components/NavBar.jsx";
+import Details from "./components/Detail.jsx";
 
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
@@ -14,6 +15,7 @@ const API_KEY = "ff4167f2d3a5.29a3b285bc3fb414a23a";
 
 function App() {
   const [characters, setCharacters] = React.useState([]);
+  const [charId, setcharId] = React.useState('');
 
   const onSearch = (item) => {
     //console.log(`${URL_BASE}${URL_SEP1}${item}${URL_SEP2}${API_KEY}`);
@@ -36,14 +38,21 @@ function App() {
     setCharacters([]);
   }
 
+  React.useEffect(useNavigate(`/detail/${charId}`), [charId]);
+
+  const updateDetail = (id) => {
+    setcharId(id);
+    console.log(id);
+  } 
+
   return (
     <div className={style.App}>
       <NavBar onSearch={onSearch} clearCards={clearCards} />
       <Routes>
         <Route exact path="/about" element={<About />}></Route>
-        <Route exact path="/" element={<Home characters={characters} onClose={onClose} />}></Route>
+        <Route exact path="/" element={<Home characters={characters} onClose={onClose} updateDetail={updateDetail} />}></Route>
         {/* <Route path={`/detail${id}`} element={<details />}></Route> */}
-        {/* <Route path={`/detail/33`} element={<details />}></Route> */}
+        <Route path='/detail/:id' element={<Details />}></Route>
       </Routes>
     </div>
   );

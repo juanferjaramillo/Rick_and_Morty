@@ -14,18 +14,23 @@ function SearchBar(props) {
   return (
     <>
       <div className={style.searchCl}>
-        <input
-          className={style.searchBox}
-          placeholder="ID del personaje"
-          type="search"
-          onChange={handleInput}
-        />
-
+        <div className={style.contSearch}>
+          <input
+            className={style.searchBox}
+            placeholder="ID del personaje"
+            type="search"
+            onChange={handleInput}
+          />
+         
+          <button className={style.boton} onClick={()=> props.onSearch(Math.round(826*Math.random()))} >I feel lucky</button>
+        </div>
         <div className={style.searchBut}>
           <button className={style.boton} onClick={() => props.onSearch(char)}>
-            Agregar
+            Add Card
           </button>
-          <button className={style.boton} onClick={() => props.clearCards()}>Recoger todo</button>
+          <button className={style.boton} onClick={() => props.clearCards()}>
+            Shovel it!
+          </button>
         </div>
       </div>
     </>
