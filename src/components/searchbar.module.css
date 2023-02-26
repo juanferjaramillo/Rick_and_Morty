@@ -1,15 +1,15 @@
 
 .boton{
    margin: 1vw;
-    max-width: 30%;
-    min-width: 7vw;
-    min-height: 4vw;
-    border-radius: 40%;
-    border-color: lightblue;
-    color: blueviolet;
-    background-color: aqua;
-    font-size: 1em;
-    padding: 5%;
+   max-width: 30%;
+   min-width: 15vw;
+   min-height: 4vw;
+   border-radius: 40%;
+   border-color: lightblue;
+   color: blueviolet;
+   background-color: aqua;
+   /* font-size: 1.5vw; */
+   padding: 5%;
 
  }
  
@@ -26,11 +26,12 @@
     margin-top: 0.5em;
  }
 
- @media (max-width: 720px) {
-   .boton{
-      font-size: 5vw;
+ @media (max-width: 1080px) {
+   /* .boton {
+      font-size: 1.5vw;
+   } */
    }
-}
+
  
 .searchCl {
    display: flex;

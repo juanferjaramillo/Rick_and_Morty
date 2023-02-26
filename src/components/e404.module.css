@@ -1,0 +1,8 @@
+.divError {
+    background-color: rgb(75, 0, 107);
+    color: cadetblue;
+    max-width: 70%;
+    margin:auto;
+    padding: 3vw;
+    border-radius: 15%;
+}

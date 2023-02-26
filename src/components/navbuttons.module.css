@@ -8,6 +8,7 @@
 .navBut {
   background-color: aqua;
   color: blueviolet;
+  min-width: 15vw;
   border-radius: 40%;
   margin: 1vw;
   padding: 5%;

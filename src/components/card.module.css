@@ -68,6 +68,7 @@
 .imgChar {
   border: 0.2vw solid darksalmon;
   border-radius: 50%;
+  max-width:25vw;
 }
 
 .imgChar:hover {

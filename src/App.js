@@ -5,6 +5,7 @@ import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Details from "./components/Detail.jsx";
+import E404 from "./components/E404.jsx";
 
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
@@ -51,8 +52,8 @@ function App() {
       <Routes>
         <Route exact path="/about" element={<About />}></Route>
         <Route exact path="/" element={<Home characters={characters} onClose={onClose} updateDetail={updateDetail} />}></Route>
-        {/* <Route path={`/detail${id}`} element={<details />}></Route> */}
         <Route path='/detail/:id' element={<Details />}></Route>
+        <Route path='*' element={<E404 />}></Route>
       </Routes>
     </div>
   );
