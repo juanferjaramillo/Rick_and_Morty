@@ -33,6 +33,8 @@ function Card(props) {
       <span className={style.titulo2} >
         {props.species + " " + props.gender}
       </span>
+
+      <div className={style.id}>{`id: ${props.id}`}</div>
     
     </div>
   );

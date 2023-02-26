@@ -36,7 +36,7 @@ function Detail() {
         {/* <h3>{`Origen: ${charDetail.origin.name}`}</h3> */}
         <h3>{`Origen: ${charDetail?.origin?.name}`}</h3>
         <h2>{`${charDetail.status} ${charDetail.species}`}</h2>
-        <h4>{`# ${charDetail.id}`}</h4>
+        <h4>{`id: ${charDetail.id}`}</h4>
       </div>
     </div>
   );
