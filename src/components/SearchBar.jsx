@@ -1,5 +1,6 @@
 import style from "./searchbar.module.css";
 import React, { useEffect } from "react";
+import {useLocation, useNavigate} from 'react-router-dom'
 
 function SearchBar(props) {
   //props === { onSearch: }
@@ -12,8 +13,8 @@ function SearchBar(props) {
     }
   );
 
+  //adiciona el personaje al tablero:
   const handleInput = (evento) => {
-
     if (evento.target.value < 827 ) {
       setChar({
         ...char, 
@@ -29,13 +30,24 @@ function SearchBar(props) {
     //actualiza el estado de la tarjeta que quiere buscar
   };
 
+  //borra la caja de texto de busqueda:
 const handleAddClick = (event) => {
   setChar({...char, inputTxt:''});
   props.onSearch(char.charAddId)
 }
 
+const handleRandomClick = (id) => {
+  console.log(id);
+  setChar({
+    ...char, 
+    charAddId: id, 
+    inputTxt: '' });
+    props.onSearch(id)
+}
+
   return (
     <>
+    
       <div className={style.searchCl}>
         <div className={style.contSearch}>
           <input
@@ -48,7 +60,8 @@ const handleAddClick = (event) => {
          
           <button 
             className={style.boton} 
-            onClick={()=> props.onSearch(Math.round(826*Math.random()))} >
+            // onClick={()=> props.onSearch(Math.round(826*Math.random()))} >
+            onClick={()=> handleRandomClick(Math.round(826*Math.random()))} >
             I feel lucky
             </button>
         </div>

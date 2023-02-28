@@ -1,11 +1,14 @@
-import React from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Route, Routes, useNavigate, 
+useLocation } from "react-router-dom";
 import style from "./App.module.css";
 import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Details from "./components/Detail.jsx";
 import E404 from "./components/E404.jsx";
+import Form from "./components/form/Form.jsx"
+import Splash from './components/Splash.jsx'
 
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
@@ -14,7 +17,11 @@ const API_KEY = "ff4167f2d3a5.29a3b285bc3fb414a23a";
 //const URL_H = `${URL_BASE}/character/${id}?key=${API_KEY}`;
 //'https://be-a-rym.up.railway.app/api/character/1?key=ff4167f2d3a5.29a3b285bc3fb414a23a'
 
+
+//------------------------APP-------------------------
 function App() {
+  
+  //-------------------LOCAL STATES--------------------
   const [characters, setCharacters] = React.useState([]);
   const [charId, setcharId] = React.useState('');
 
@@ -40,23 +47,24 @@ function App() {
   }
 
   React.useEffect(useNavigate(`/detail/${charId}`), [charId]);
-
+  
   const updateDetail = (id) => {
     setcharId(id);
     console.log(id);
-  } 
+  }
 
   return (
     <div className={style.App}>
-      <NavBar onSearch={onSearch} clearCards={clearCards} />
+      {useLocation().pathname !== '/' ? <NavBar onSearch={onSearch} clearCards={clearCards} /> : null}
+      {/* {useLocation().pathname !== '/' ? <Splash /> : null} */}
       <Routes>
         <Route exact path="/about" element={<About />}></Route>
-        <Route exact path="/" element={<Home characters={characters} onClose={onClose} updateDetail={updateDetail} />}></Route>
+        <Route exact path="/home" element={<Home characters={characters} onClose={onClose} updateDetail={updateDetail} />}></Route>
         <Route path='/detail/:id' element={<Details />}></Route>
+        <Route path='/' element={<Form />}></Route>
         <Route path='*' element={<E404 />}></Route>
       </Routes>
     </div>
   );
 }
-
 export default App;

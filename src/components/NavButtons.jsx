@@ -6,7 +6,7 @@ function NavButtons() {
   return (
     <div className={style.contenedor}>
       <button className={style.navBut}>
-        <Link to="/">Home</Link>
+        <Link to="/Home">Home</Link>
       </button>
       <button className={style.navBut}>
         <Link to="/about">About</Link>

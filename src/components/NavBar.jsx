@@ -3,7 +3,7 @@ import Logo from "./Logo.jsx";
 import NavButtons from "./NavButtons";
 import style from './navbar.module.css'
 
-function NavBar({ onSearch, clearCards}) {
+function NavBar({onSearch, clearCards}) {
   return (
     <div className={style.navBar}>
       <NavButtons />
