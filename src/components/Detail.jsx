@@ -27,7 +27,7 @@ function Detail() {
   return (
     <div className={style.contenedor}>
       <div>
-        <img alt='personajeX' src={charDetail.image}></img>
+        <img className={style.imgDetail} alt='personajeX' src={charDetail.image} ></img>
       </div>
       <div>
         <h1>{charDetail.name}</h1>

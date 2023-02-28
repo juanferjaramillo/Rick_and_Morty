@@ -72,7 +72,7 @@
 }
 
 .imgChar:hover {
-   cursor: pointer;
+  cursor: pointer;
   animation-name: rotarPic;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
@@ -80,10 +80,10 @@
 
 @keyframes rotarPic {
   0% {
-    transform: rotateX(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotateX(360deg);
+    transform: rotate(720deg);
   }
 }
 
