@@ -11,10 +11,6 @@
   animation-name: expandCard;
   animation-duration: 1s;
   animation-iteration-count: 1;
-  /* animation-name: rotarCard;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite; */
-
 }
 
 @keyframes rotarCard {

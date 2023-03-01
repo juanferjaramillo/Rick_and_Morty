@@ -1,6 +1,6 @@
-import SearchBar from "./SearchBar";
-import Logo from "./Logo.jsx";
-import NavButtons from "./NavButtons";
+import SearchBar from "../searchbar/SearchBar";
+import Logo from "../logo/Logo.jsx";
+import NavButtons from "../navbuttons/NavButtons";
 import style from './navbar.module.css'
 
 function NavBar({onSearch, clearCards}) {

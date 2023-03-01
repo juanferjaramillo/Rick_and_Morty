@@ -3,26 +3,31 @@ import React, {useEffect}  from "react";
 import { useNavigate } from "react-router-dom";
 import style from './form.module.css'
 import validate from './validation.js'
+import { connect } from "react-redux";
+import { setLogin } from "../../redux/actions";
 
 const usr_auth = 'juanfer.jaramillo@gmail.com';
 const psw_auth = 'juan123';
 
-function Form() {
-  const [access, setAccess] = React.useState(false);
+function Form({setLogin}) {
+  //const [access, setAccess] = React.useState(false);
 
   const navigate = useNavigate();  //se asigna para poder usarla dentro de la funcion login
   
   
-  const login = (userData) => {
+  const login = (userData, event) => {
     //setea el estado de login
     // console.log(userData.username);
     // console.log(userData.password);
+    event.preventDefault()
     if (
       userData.username === usr_auth &&
       userData.password === psw_auth
       ) {
+        setLogin();  
+        console.log(setLogin);
+        //////////////////no esta cambiando el estado global!!
         console.log('ACCESO OK');
-        setAccess(true);
         navigate('/home');
       }
     }
@@ -60,10 +65,11 @@ function Form() {
         <hr />
         <form 
         className={style.form}
-        onSubmit={()=>login(userData)}
+        type='submit'
+        onSubmit={(event)=>login(userData, event)}
         >
           <input 
-          classname={style.inputForm} 
+          className={style.inputForm} 
           name='username'
           type='text'
           placeholder='usuario'
@@ -76,7 +82,7 @@ function Form() {
 
           <br></br>
           <input 
-          classname={style.inputForm}
+          className={style.inputForm}
           name='password'
           type='password'
           placeholder='password'
@@ -89,10 +95,22 @@ function Form() {
           <br></br>
           <button 
           type='submit' 
-          classname={style.submit}>Log in</button>
+          className={style.submit}>Log in</button>
         </form>
       </div>
     </div>
   );
 }
-export default Form;
+
+
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    setLogin: ()=> dispatch(setLogin())
+}
+}
+
+// export default Form;
+export default connect(
+  null, //arma un objeto de lo que obtiene del global state y lo alimenta a props de su mismo componente
+  mapDispatchToProps //adiciona la funcion dispatch que obtiene del global state que recibe a los props
+)(Form)

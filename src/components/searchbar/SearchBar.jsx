@@ -32,8 +32,8 @@ function SearchBar(props) {
 
   //borra la caja de texto de busqueda:
 const handleAddClick = (event) => {
-  setChar({...char, inputTxt:''});
   props.onSearch(char.charAddId)
+  setChar({...char, inputTxt:''});
 }
 
 const handleRandomClick = (id) => {

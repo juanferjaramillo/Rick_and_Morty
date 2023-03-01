@@ -2,13 +2,13 @@ import React, {useState, useEffect} from "react";
 import { Route, Routes, useNavigate, 
 useLocation } from "react-router-dom";
 import style from "./App.module.css";
-import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
-import NavBar from "./components/NavBar.jsx";
-import Details from "./components/Detail.jsx";
-import E404 from "./components/E404.jsx";
+import Home from "./components/home/Home.jsx";
+import About from "./components/about/About.jsx";
+import NavBar from "./components/navbar/NavBar.jsx";
+import Details from "./components/detail/Detail.jsx";
+import E404 from "./components/e404/E404.jsx";
 import Form from "./components/form/Form.jsx"
-import Splash from './components/Splash.jsx'
+import Splash from './components/splash/Splash.jsx'
 
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
