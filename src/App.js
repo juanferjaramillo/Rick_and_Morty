@@ -9,7 +9,8 @@ import Details from "./components/detail/Detail.jsx";
 import E404 from "./components/e404/E404.jsx";
 import Form from "./components/form/Form.jsx"
 import Splash from './components/splash/Splash.jsx'
-
+import { useDispatch } from "react-redux";
+import { addCharToTable } from "./redux/actions";
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
 const URL_SEP2 = "?key=";
@@ -25,6 +26,8 @@ function App() {
   const [characters, setCharacters] = React.useState([]);
   const [charId, setcharId] = React.useState('');
 
+  const dispatch = useDispatch();
+  
   const onSearch = (item) => {
     //console.log(`${URL_BASE}${URL_SEP1}${item}${URL_SEP2}${API_KEY}`);
     fetch(`${URL_BASE}${URL_SEP1}${item}${URL_SEP2}${API_KEY}`)
@@ -33,6 +36,8 @@ function App() {
       .then((datos) => {
         let ar = [...characters, datos]; //nuevo array con los caracteres existentes unidos al nuevo.
         setCharacters(ar);
+        dispatch(addCharToTable(datos))
+        //incluye el nuevo character en el estado global.
       })
       .catch((err) => console.log(`Ocurrio el error ${err}`));
   };

@@ -1,53 +1,46 @@
 import style from "./card.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
 
-//-----------------------------------------------
+//////////////////////// CARD //////////////////////////
 
-function Card(props, { addFavorite, removeFavorite }) {
-  //props = {name:'Rick', gender... }
-
+function Card(props) {
+  
   const [isFav, setIsFav] = useState(false);
 
+  const myFav = useSelector((stateG) => stateG.myFavorites);
+
+  useEffect(() => 
+  myFav.includes(props.id) ? setIsFav(true) : setIsFav(false),
+  []);
+
   const handleFavorite = () => {
+    //console.log(props.id);
     if (isFav) {
       setIsFav(false);
-      removeFavorite(props.id);
+      props.removeFavorite(props.id);
     } else {
       setIsFav(true);
-      addFavorite(props);
+      props.addFavorite(props.id);
     }
+    console.log(myFav);
   };
-
-  React.useEffect(()=>{
-    props.myFavorites.forEach((elem)=>{
-    if(elem.id===props.id) setIsFav(true)
-  },[])})
-
-//   useEffect(() => {
-//     myFavorites.forEach((fav) => {
-//        if (fav.id === props.id) {
-//           setIsFav(true);
-//        }
-//     });
-//  }, [myFavorites]);
   //-----------------------------------------------
 
   return (
     <div
       className={style.cardCl}
       style={{ transform: `rotate(${Math.round(20 - 40 * Math.random())}deg)` }}
+      key={props.id}
     >
-      {
-        (isFav ? (
-          <button onClick={handleFavorite}>❤️</button>
-        ) : (
-          <button onClick={handleFavorite}>🤍</button>
-        ))
-      }
-            
+      {isFav ? (
+        <button onClick={handleFavorite}>❤️</button>
+      ) : (
+        <button onClick={handleFavorite}>🤍</button>
+      )}
+
       <button
         className={style.botonX}
         onClick={() => props.onClose(props.id)}

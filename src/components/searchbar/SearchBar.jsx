@@ -1,53 +1,76 @@
 import style from "./searchbar.module.css";
 import React, { useEffect } from "react";
-import {useLocation, useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addCharToTable, clearTable } from "../../redux/actions";
 
 function SearchBar(props) {
   //props === { onSearch: }
   //recibe por props una función onSearch, dicha función recibe un parámetro (que más adelante será el ID del personaje tomado desde el input
 
-  const [char, setChar] = React.useState(
-    {
-      charAddId: 0,
-      inputTxt: ''
-    }
-  );
+  const [char, setChar] = React.useState({
+    charAddId: 0,
+    inputTxt: "",
+  });
 
   //adiciona el personaje al tablero:
   const handleInput = (evento) => {
-    if (evento.target.value < 827 ) {
+    if (evento.target.value < 827) {
       setChar({
-        ...char, 
-        charAddId: evento.target.value, 
-        inputTxt: evento.target.value });
+        ...char,
+        charAddId: evento.target.value,
+        inputTxt: evento.target.value,
+      });
+      
       //cambia el estado cada vez que el usuario ingresa un caracter
       //no cambia el dom porque no hay nada nuevo que renderizar
-    }else{
-      alert('😲 Ese personaje no existe! 😲')
+    } else {
+      alert("😲 Ese personaje no existe! 😲");
       //informa al usuario inmediatamente ingresa un valor prohibido
     }
-    
-    //actualiza el estado de la tarjeta que quiere buscar
   };
 
-  //borra la caja de texto de busqueda:
-const handleAddClick = (event) => {
-  props.onSearch(char.charAddId)
-  setChar({...char, inputTxt:''});
-}
+  const charsOnTable = useSelector((stateG) => stateG.charsOnTable);
+  //trae los id de los charsOnTable del stateG
+  // console.log(charsOnTable);
 
-const handleRandomClick = (id) => {
-  console.log(id);
-  setChar({
-    ...char, 
-    charAddId: id, 
-    inputTxt: '' });
-    props.onSearch(id)
-}
+  const dispatch = useDispatch();
+  const handleAddClick = () => {
+    //verifica si el id ingresado ya existe
+    let exist = false;
+    charsOnTable.forEach((elem) => {
+      if (elem===char.charAddId) exist = true}) 
+
+    if (exist) {
+      alert("😲 Ese personaje ya lo tienes! 😲");
+    } else {
+      // console.log(charsOnTable);
+      // console.log(char.charAdd);
+      dispatch(addCharToTable(char.charAddId))
+      props.onSearch(char.charAddId);
+      //borra la caja de texto de busqueda:
+      setChar({ ...char, inputTxt: "" });
+    }
+  };
+
+  const handleRandomClick = (id) => {
+    console.log(id);
+    setChar({
+      ...char,
+      charAddId: id,
+      inputTxt: "",
+    });
+    props.onSearch(id);
+  };
+
+  const handleClean = () => {
+  dispatch(clearTable())
+  props.clearCards()
+  }
+
 
   return (
     <>
-    
       <div className={style.searchCl}>
         <div className={style.contSearch}>
           <input
@@ -55,29 +78,25 @@ const handleRandomClick = (id) => {
             placeholder="ID del personaje"
             type="search"
             onChange={handleInput}
-            value = {char.inputTxt}
+            value={char.inputTxt}
           />
-         
-          <button 
-            className={style.boton} 
+
+          <button
+            className={style.boton}
             // onClick={()=> props.onSearch(Math.round(826*Math.random()))} >
-            onClick={()=> handleRandomClick(Math.round(826*Math.random()))} >
+            onClick={() => handleRandomClick(Math.round(826 * Math.random()))}
+          >
             I feel lucky
-            </button>
+          </button>
         </div>
 
         <div className={style.searchBut}>
-
-          <button 
-            className={style.boton} 
-            onClick={handleAddClick}>
+          <button className={style.boton} onClick={handleAddClick}>
             Add Card
-           </button>
+          </button>
 
-          <button 
-            className={style.boton} 
-              onClick={() => props.clearCards()}>
-              Shovel it!
+          <button className={style.boton} onClick={handleClean}>
+            Shovel it!
           </button>
         </div>
       </div>

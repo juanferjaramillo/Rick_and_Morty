@@ -17,17 +17,12 @@ function Form({setLogin}) {
   
   const login = (userData, event) => {
     //setea el estado de login
-    // console.log(userData.username);
-    // console.log(userData.password);
     event.preventDefault()
     if (
       userData.username === usr_auth &&
       userData.password === psw_auth
       ) {
-        setLogin();  
-        console.log(setLogin);
-        //////////////////no esta cambiando el estado global!!
-        console.log('ACCESO OK');
+        setLogin();
         navigate('/home');
       }
     }
