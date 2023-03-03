@@ -141,3 +141,9 @@
   font-size: 1.3vw;
   margin-right: 80%;
 }
+
+.fav {
+  max-width: 20%;
+  border-radius: 20%;
+  background-color:rgb(47, 47, 47);
+}

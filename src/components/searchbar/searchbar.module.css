@@ -1,51 +1,51 @@
+.boton {
+  margin: 1vw;
+  max-width: 30%;
+  min-width: 15vw;
+  min-height: 4vw;
+  border-radius: 15%;
+  border-color: burlywood;
+  background-color: transparent;
+  color: bisque;
+  font-size: 1.2em;
+}
 
-.boton{
-   margin: 1vw;
-   max-width: 30%;
-   min-width: 15vw;
-   min-height: 4vw;
-   border-radius: 40%;
-   border-color: lightblue;
-   color: blueviolet;
-   background-color: aqua;
-   /* font-size: 1.5vw; */
-   padding: 5%;
-
- }
- 
- .searchBox{
-    border-radius: 0.3em;
-    background-color:bisque;
-    width: 10em;
-    font-size: 1.3em;
-    text-align: center;
-    color: #f80275;
-    margin-bottom: 3em;
-    margin:auto;
-    margin-right: 2vw;
-    margin-top: 0.5em;
+.link {
+   color:bisque; 
+   font-size: 1em;
  }
 
- @media (max-width: 1080px) {
-   /* .boton {
+.searchBox {
+  border-radius: 0.3em;
+  background-color: bisque;
+  width: 10em;
+  font-size: 1.3em;
+  text-align: center;
+  color: #f80275;
+  margin-bottom: 3em;
+  margin: auto;
+  margin-right: 2vw;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 1080px) {
+  /* .boton {
       font-size: 1.5vw;
    } */
-   }
+}
 
- 
 .searchCl {
-   display: flex;
-   align-items:center;
+  display: flex;
+  align-items: center;
 }
 
 .searchBut {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .contSearch {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -6,10 +6,10 @@ function NavButtons() {
   return (
     <div className={style.contenedor}>
       <button className={style.navBut}>
-        <Link to="/Home">Home</Link>
+        <Link to="/Home" className={style.link}>Home</Link>
       </button>
       <button className={style.navBut}>
-        <Link to="/about">About</Link>
+        <Link to="/about" className={style.link}>About</Link>
       </button>
     </div>
   );

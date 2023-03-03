@@ -2,20 +2,39 @@ import Card from "../card/Card";
 import style from "./cards.module.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 // va a recibir un arreglo de personajes (con todos sus datos), y va a utilizar un componente Card (reutilizando el mismo que ya hicimos en el punto anterior) por cada uno de ellos, pasándole las props correspondientes.
 
 function Cards({ characters, onClose, updateDetail, logedin }) {
   //characters =[ {name:'Rick',gender...}, {name:'Rick',gender...}, ---- ]
+  
+  const CharsOnTable = useSelector(stateG => stateG.charsOnTable);
+  //trae todos los caracteres del stateG
 
   const navigate = useNavigate();
   
-  useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [characters]);
+  // useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [characters]);
+  useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [CharsOnTable]);
 
   return (
+    // <div className={style.CardsCl}>
+    //   {characters.map(({ name, species, gender, image, id }) => {
+    //     return (
+    //       <Card
+    //         id={id} //identificador unico del tag
+    //         name={name}
+    //         species={species}
+    //         gender={gender}
+    //         image={image}
+    //         onClose={onClose}
+    //         updateIdDetail={updateDetail}
+    //       />
+    //     );
+    //   })}
+    // </div>
     <div className={style.CardsCl}>
-      {characters.map(({ name, species, gender, image, id }) => {
+      {CharsOnTable.map(({ name, species, gender, image, id }) => {
         return (
           <Card
             id={id} //identificador unico del tag

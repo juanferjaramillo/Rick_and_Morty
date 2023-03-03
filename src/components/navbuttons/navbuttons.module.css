@@ -6,10 +6,16 @@
 }
 
 .navBut {
-  background-color: aqua;
-  color: blueviolet;
+  background-color: transparent;
+  border-color: burlywood;
+  outline-color: ;
   min-width: 15vw;
-  border-radius: 40%;
+  border-radius: 15%;
   margin: 1vw;
   padding: 5%;
+}
+
+.link {
+  color:bisque; 
+  font-size: 1.2em;
 }

@@ -8,9 +8,11 @@ import NavBar from "./components/navbar/NavBar.jsx";
 import Details from "./components/detail/Detail.jsx";
 import E404 from "./components/e404/E404.jsx";
 import Form from "./components/form/Form.jsx"
-import Splash from './components/splash/Splash.jsx'
 import { useDispatch } from "react-redux";
 import { addCharToTable } from "./redux/actions";
+import Favorites from "./components/favorites/Favorites";
+//import {serverFetch} from './serverFetch';
+
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
 const URL_SEP2 = "?key=";
@@ -28,9 +30,9 @@ function App() {
 
   const dispatch = useDispatch();
   
-  const onSearch = (item) => {
-    //console.log(`${URL_BASE}${URL_SEP1}${item}${URL_SEP2}${API_KEY}`);
-    fetch(`${URL_BASE}${URL_SEP1}${item}${URL_SEP2}${API_KEY}`)
+  const onSearch = (id) => {
+    //console.log(`${URL_BASE}${URL_SEP1}${id}${URL_SEP2}${API_KEY}`);
+    fetch(`${URL_BASE}${URL_SEP1}${id}${URL_SEP2}${API_KEY}`)
       //URL_H = 'https://be-a-rym.up.railway.app/api/character/1?key=ff4167f2d3a5.29a3b285bc3fb414a23a'
       .then((item) => item.json())
       .then((datos) => {
@@ -42,10 +44,13 @@ function App() {
       .catch((err) => console.log(`Ocurrio el error ${err}`));
   };
 
-  const onClose = (item) => {
-    let arr = characters.filter((elem) => elem.id !== item);
-    setCharacters(arr);
-  };
+  //let newCharOnTable = serverFetch(id);
+
+
+  // const onClose = (item) => {
+  //   let arr = characters.filter((elem) => elem.id !== item);
+  //   setCharacters(arr);
+  // };
 
   const clearCards = () => {
     setCharacters([]);
@@ -60,12 +65,14 @@ function App() {
 
   return (
     <div className={style.App}>
-      {useLocation().pathname !== '/' ? <NavBar onSearch={onSearch} clearCards={clearCards} /> : null}
       {/* {useLocation().pathname !== '/' ? <Splash /> : null} */}
+      {useLocation().pathname !== '/' ? <NavBar onSearch={onSearch} clearCards={clearCards} /> : null}
       <Routes>
-        <Route exact path="/about" element={<About />}></Route>
-        <Route exact path="/home" element={<Home characters={characters} onClose={onClose} updateDetail={updateDetail} />}></Route>
+        <Route path='/favorites/' element={<Favorites />}></Route>
         <Route path='/detail/:id' element={<Details />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        {/* <Route path="/home" element={<Home characters={characters} onClose={onClose} updateDetail={updateDetail} />}></Route> */}
+        <Route path="/home" element={<Home />}></Route>
         <Route path='/' element={<Form />}></Route>
         <Route path='*' element={<E404 />}></Route>
       </Routes>

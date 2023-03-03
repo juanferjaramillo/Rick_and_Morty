@@ -1,6 +1,6 @@
 import style from "./searchbar.module.css";
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addCharToTable, clearTable } from "../../redux/actions";
 
@@ -21,7 +21,7 @@ function SearchBar(props) {
         charAddId: evento.target.value,
         inputTxt: evento.target.value,
       });
-      
+
       //cambia el estado cada vez que el usuario ingresa un caracter
       //no cambia el dom porque no hay nada nuevo que renderizar
     } else {
@@ -39,14 +39,24 @@ function SearchBar(props) {
     //verifica si el id ingresado ya existe
     let exist = false;
     charsOnTable.forEach((elem) => {
-      if (elem===char.charAddId) exist = true}) 
+      if (elem.id.toString() === char.charAddId) {
+        console.log('iguales');
+        console.log(toString(elem.id));
+        console.log(char.charAddId);
+        exist = true;
+      }else{
+        console.log(elem.id);
+        console.log(char.charAddId);
+        console.log('diferentes');
+
+      }
+    });
 
     if (exist) {
       alert("😲 Ese personaje ya lo tienes! 😲");
     } else {
-      // console.log(charsOnTable);
-      // console.log(char.charAdd);
-      dispatch(addCharToTable(char.charAddId))
+      //dispatch(addCharToTable(char.charAddId));
+      //lo adiciona al estado global
       props.onSearch(char.charAddId);
       //borra la caja de texto de busqueda:
       setChar({ ...char, inputTxt: "" });
@@ -54,7 +64,18 @@ function SearchBar(props) {
   };
 
   const handleRandomClick = (id) => {
-    console.log(id);
+    // let exist = false;
+    // charsOnTable.forEach((elem) => {
+    //   if (elem===id) exist = true})
+
+    // while (exist) {
+    //   id++;
+    //   exist = false;
+    //   charsOnTable.forEach((elem) => {
+    //     if (elem===id) exist = true})
+    // }
+    // if (id > 826) {alert('Intenta de nuevo')}
+    // else {
     setChar({
       ...char,
       charAddId: id,
@@ -64,10 +85,9 @@ function SearchBar(props) {
   };
 
   const handleClean = () => {
-  dispatch(clearTable())
-  props.clearCards()
-  }
-
+    dispatch(clearTable());
+    props.clearCards(); //borra cards del estado local en App
+  };
 
   return (
     <>
@@ -96,7 +116,13 @@ function SearchBar(props) {
           </button>
 
           <button className={style.boton} onClick={handleClean}>
-            Shovel it!
+            Clear the table!
+          </button>
+
+          <button className={style.boton}>
+            <Link to="/favorites/" className={style.link}>
+              My Favorites
+            </Link>
           </button>
         </div>
       </div>

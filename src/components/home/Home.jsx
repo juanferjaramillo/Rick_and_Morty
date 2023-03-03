@@ -8,8 +8,9 @@ import Splash from "../splash/Splash.jsx";
 function Home({characters, onClose, updateDetail}) {
   return (
     <div>
-      <Cards characters={characters} onClose={onClose} updateIdDetail={updateDetail} />
-      {characters.length === 0 ? <Splash /> : null}
+      {/* <Cards characters={characters} onClose={onClose} updateIdDetail={updateDetail} /> */}
+      <Cards />
+      {/* {characters.length === 0 ? <Splash /> : null} */}
     </div>
   );
 }
