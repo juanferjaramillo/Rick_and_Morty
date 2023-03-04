@@ -11,7 +11,6 @@ import Form from "./components/form/Form.jsx"
 import { useDispatch } from "react-redux";
 import { addCharToTable } from "./redux/actions";
 import Favorites from "./components/favorites/Favorites";
-//import {serverFetch} from './serverFetch';
 
 const URL_BASE = "https://be-a-rym.up.railway.app/api";
 const URL_SEP1 = "/character/";
@@ -65,7 +64,6 @@ function App() {
 
   return (
     <div className={style.App}>
-      {/* {useLocation().pathname !== '/' ? <Splash /> : null} */}
       {useLocation().pathname !== '/' ? <NavBar onSearch={onSearch} clearCards={clearCards} /> : null}
       <Routes>
         <Route path='/favorites/' element={<Favorites />}></Route>

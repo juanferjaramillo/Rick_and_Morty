@@ -9,13 +9,13 @@ import { connect, useSelector } from "react-redux";
 function Cards({ characters, onClose, updateDetail, logedin }) {
   //characters =[ {name:'Rick',gender...}, {name:'Rick',gender...}, ---- ]
   
-  const CharsOnTable = useSelector(stateG => stateG.charsOnTable);
+  const charsOnTable = useSelector(stateG => stateG.charsOnTable);
   //trae todos los caracteres del stateG
 
   const navigate = useNavigate();
   
   // useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [characters]);
-  useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [CharsOnTable]);
+  useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [charsOnTable]);
 
   return (
     // <div className={style.CardsCl}>
@@ -34,7 +34,7 @@ function Cards({ characters, onClose, updateDetail, logedin }) {
     //   })}
     // </div>
     <div className={style.CardsCl}>
-      {CharsOnTable.map(({ name, species, gender, image, id }) => {
+      {charsOnTable.map(({ name, species, gender, image, id }) => {
         return (
           <Card
             id={id} //identificador unico del tag

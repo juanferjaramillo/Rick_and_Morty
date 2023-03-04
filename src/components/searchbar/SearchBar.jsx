@@ -102,7 +102,7 @@ function SearchBar(props) {
           />
 
           <button
-            className={style.boton}
+            className={`${style.boton}`}
             // onClick={()=> props.onSearch(Math.round(826*Math.random()))} >
             onClick={() => handleRandomClick(Math.round(826 * Math.random()))}
           >

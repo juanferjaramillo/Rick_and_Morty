@@ -9,7 +9,6 @@ const API_KEY = "ff4167f2d3a5.29a3b285bc3fb414a23a";
 
 function Detail() {
   const {id} = useParams();
-
   const [charDetail, setCharDetail] = React.useState({});
 
   useEffect(() => {
