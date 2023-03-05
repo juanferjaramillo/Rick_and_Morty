@@ -14,9 +14,13 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   const myFav = useSelector((stateG) => stateG.myFavorites);
+  //arreglo de caracteres
 
   useEffect(
-    () => (myFav.includes(props.id) ? setIsFav(true) : setIsFav(false)),
+    () =>
+      myFav.some((obj) => obj.id === props.id)
+        ? setIsFav(true)
+        : setIsFav(false),
     []
   );
 
@@ -30,9 +34,9 @@ function Card(props) {
       dispatch(removeFavorite(props.id));
     } else {
       setIsFav(true);
-      dispatch(addFavorite(props.id));
+      dispatch(addFavorite(props));
     }
-    console.log(myFav);
+    //console.log(myFav);
   };
 
   const onClose = () => {
@@ -82,29 +86,3 @@ function Card(props) {
   );
 }
 export default Card;
-//-------------------------------------------------
-
-// const mapStateToProps = (stateG) => {
-//   //trae el estado global al estado local del componente
-//   return {
-//     myFavorites: stateG.myFavorites,
-//   };
-// };
-
-// export const mapDispatchToProps = (dispatch) => {
-//   //adiciona las funciones addFavorite y removeFavorite a props
-//   return {
-//     addFavorite: (id) => {
-//       dispatch(addFavorite(id));
-//     },
-//     removeFavorite: (id) => {
-//       dispatch(removeFavorite(id));
-//     },
-//   };
-// };
-
-// export default Card;
-// export default connect(
-//   mapStateToProps, //arma un objeto de lo que obtiene del global state y lo alimenta a props de su mismo componente
-//   mapDispatchToProps //adiciona la funcion dispatch que obtiene del global state que recibe a los props
-// )(Card);

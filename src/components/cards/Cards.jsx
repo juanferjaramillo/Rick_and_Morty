@@ -8,35 +8,24 @@ import { connect, useSelector } from "react-redux";
 
 function Cards({ characters, onClose, updateDetail, logedin }) {
   //characters =[ {name:'Rick',gender...}, {name:'Rick',gender...}, ---- ]
-  
-  const charsOnTable = useSelector(stateG => stateG.charsOnTable);
+
+  const charsOnTable = useSelector((stateG) => stateG.charsOnTable);
   //trae todos los caracteres del stateG
 
   const navigate = useNavigate();
-  
+
   // useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [characters]);
-  useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [charsOnTable]);
+  useEffect(
+    () => (logedin ? console.log("acceso OK") : navigate("/")),
+    [charsOnTable]
+  );
 
   return (
-    // <div className={style.CardsCl}>
-    //   {characters.map(({ name, species, gender, image, id }) => {
-    //     return (
-    //       <Card
-    //         id={id} //identificador unico del tag
-    //         name={name}
-    //         species={species}
-    //         gender={gender}
-    //         image={image}
-    //         onClose={onClose}
-    //         updateIdDetail={updateDetail}
-    //       />
-    //     );
-    //   })}
-    // </div>
     <div className={style.CardsCl}>
       {charsOnTable.map(({ name, species, gender, image, id }) => {
         return (
           <Card
+            key={id}
             id={id} //identificador unico del tag
             name={name}
             species={species}

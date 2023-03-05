@@ -5,7 +5,7 @@ import { SET_LOGIN, CLEAR_TABLE } from "./actions";
 
 const initialState = {
   logedin: false,
-  myFavorites: [], //array de id
+  myFavorites: [], //array de chars
   charsOnTable: [], //array de chars
 };
 
@@ -27,7 +27,7 @@ const reducer = (stateG = initialState, action) => {
       return {
         ...stateG,
         myFavorites: stateG.myFavorites.filter(
-          (elem) => elem !== action.payload
+          (elem) => elem.id !== action.payload
         ),
       };
     case ADD_CHAR_TO_TABLE:

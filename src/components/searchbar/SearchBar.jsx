@@ -40,15 +40,14 @@ function SearchBar(props) {
     let exist = false;
     charsOnTable.forEach((elem) => {
       if (elem.id.toString() === char.charAddId) {
-        console.log('iguales');
-        console.log(toString(elem.id));
-        console.log(char.charAddId);
+        //console.log('iguales');
+        //console.log(toString(elem.id));
+        //console.log(char.charAddId);
         exist = true;
       }else{
-        console.log(elem.id);
-        console.log(char.charAddId);
-        console.log('diferentes');
-
+        //console.log(elem.id);
+        //console.log(char.charAddId);
+        //console.log('diferentes');
       }
     });
 

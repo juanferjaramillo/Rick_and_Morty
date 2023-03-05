@@ -19,22 +19,21 @@
   background-color: rgba(68, 0, 111, 0.4);
 }
 
-
 @keyframes beat {
   0% {
-    box-shadow: 0px 0px 10px bisque;
+    box-shadow: 0px 0px 15px bisque;
   }
   25% {
     box-shadow: 0px 0px 0px bisque;
   }
   50% {
-    box-shadow: 0px 0px 10px bisque;
+    box-shadow: 0px 0px 15px bisque;
   }
   75% {
-    box-shadow: 0px 0px 10px bisque;
+    box-shadow: 0px 0px 15px bisque;
   }
   100% {
-    box-shadow: 0px 0px 10px bisque;
+    box-shadow: 0px 0px 15px bisque;
   }
 }
 
@@ -75,5 +74,7 @@
 .contSearch {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:flex-start;
+  justify-content: space-between;
+  height: 20vh;;
 }

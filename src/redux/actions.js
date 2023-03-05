@@ -10,10 +10,10 @@ export const setLogin = () => {
     type: SET_LOGIN,
   };
 };
-export const addFavorite = (id) => {
+export const addFavorite = (char) => {
   return {
     type: ADD_TO_FAVORITES,
-    payload: id,
+    payload: char,
   };
 };
 export const removeFavorite = (id) => {
