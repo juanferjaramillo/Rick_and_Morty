@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import style from "./App.module.css";
 import Home from "./components/home/Home.jsx";
 import About from "./components/about/About.jsx";
@@ -7,6 +7,7 @@ import NavBar from "./components/navbar/NavBar.jsx";
 import Details from "./components/detail/Detail.jsx";
 import E404 from "./components/e404/E404.jsx";
 import Form from "./components/form/Form.jsx";
+import Filtered from "./components/filtered/filtered";
 import { useDispatch } from "react-redux";
 import { addCharToTable } from "./redux/actions";
 import Favorites from "./components/favorites/Favorites";
@@ -22,7 +23,7 @@ const API_KEY = "ff4167f2d3a5.29a3b285bc3fb414a23a";
 function App() {
   //-------------------LOCAL STATES--------------------
   const [characters, setCharacters] = React.useState([]);
-  const [charId, setcharId] = React.useState("");
+  // const [charId, setcharId] = React.useState("");
 
   const dispatch = useDispatch();
 
@@ -51,12 +52,12 @@ function App() {
     setCharacters([]);
   };
 
-  React.useEffect(useNavigate(`/detail/${charId}`), [charId]);
+  // React.useEffect(useNavigate(`/detail/${charId}`), [charId]);
 
-  const updateDetail = (id) => {
-    setcharId(id);
-    console.log(id);
-  };
+  // const updateDetail = (id) => {
+  //   setcharId(id);
+  //   console.log(id);
+  // };
 
   return (
     <div className={style.App}>
@@ -66,6 +67,7 @@ function App() {
       <Routes>
         <Route path="/favorites/" element={<Favorites />}></Route>
         <Route path="/detail/:id" element={<Details />}></Route>
+        <Route path="/filtered" element={<Filtered />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/" element={<Form />}></Route>

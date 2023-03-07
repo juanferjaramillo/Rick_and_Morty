@@ -1,0 +1,13 @@
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 80%;
+    justify-content: space-around;
+    padding: 2vw;
+    border-radius: 2vw;
+    background-color: rgba(172, 244, 100, 0.4);
+    border-radius: 2vw;
+    box-shadow: 0px 0px 10px rgb(190, 222, 66);
+    color: rgb(190, 222, 66);
+}

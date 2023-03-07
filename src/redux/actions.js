@@ -4,6 +4,8 @@ export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const ADD_CHAR_TO_TABLE = "ADD_CHAR_TO_TABLE";
 export const REMOVE_CHAR_FROM_TABLE = "REMOVE_CHAR_FROM_TABLE";
 export const CLEAR_TABLE = "CLEAR_TABLE";
+export const FILTER = "FILTER";
+export const ORDER = "ORDER";
 
 export const setLogin = () => {
   return {
@@ -37,5 +39,17 @@ export const removeCharFromTable = (id) => {
 export const clearTable = () => {
   return {
     type: CLEAR_TABLE,
-  }
-}
+  };
+};
+export const filter = (gender) => {
+  return {
+    type: FILTER,
+    payload: gender,
+  };
+};
+export const ordenar = (orden) => {
+  return {
+    type: ORDER,
+    payload: orden,
+  };
+};
