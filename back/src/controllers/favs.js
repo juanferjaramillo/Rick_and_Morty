@@ -1,4 +1,4 @@
-const favs = require("../utils/favs");
+const favs = require("../utils/favorites");
 
 function getFavs(req, res) {
   if (favorites.length > 0) {
