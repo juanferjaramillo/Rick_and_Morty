@@ -18,13 +18,15 @@ function Form({setLogin}) {
   const login = (userData, event) => {
     //setea el estado de login
     event.preventDefault()
-    if (
-      userData.username === usr_auth &&
-      userData.password === psw_auth
-      ) {
+    // if (
+    //   userData.username === usr_auth &&
+    //   userData.password === psw_auth
+    //   ) {
         setLogin();
         navigate('/home');
-      }
+    //   }
+
+
     }
     
     //   useEffect(() => {

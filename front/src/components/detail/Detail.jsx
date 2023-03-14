@@ -21,8 +21,6 @@ function Detail() {
   ,
   []);
 
-  console.log(`EL VALOR ES : ${charDetail.origin}`);
-
   return (
     <div className={style.contenedor}>
       <div>

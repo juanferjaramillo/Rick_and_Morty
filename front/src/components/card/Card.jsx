@@ -16,7 +16,6 @@ function Card(props) {
   const myFav = useSelector((stateG) => stateG.myFavorites);
   //arreglo de caracteres
 
-  console.log(props.image);
   useEffect(
     () =>
       myFav.some((obj) => obj.id === props.id)

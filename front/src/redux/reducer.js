@@ -19,7 +19,7 @@ const reducer = (stateG = initialState, action) => {
       };
 
     case ADD_TO_FAVORITES:
-      console.log(`adicionando el ${action.payload}`);
+      console.log(`Reducer adicionando el ${action.payload}`);
       return {
         ...stateG,
         myFavorites: [...stateG.myFavorites, action.payload],

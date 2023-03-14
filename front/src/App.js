@@ -29,7 +29,6 @@ function App() {
   const dispatch = useDispatch();
 
   const onSearch = (id) => {
-    console.log(`estamos en onsearch`);
     // fetch(`${URL_BASE}${URL_SEP1}${id}${URL_SEP2}${API_KEY}`)
     // fetch(`http://127.0.0.1:3001/rickandmorty/character/${id}`)
     // fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)

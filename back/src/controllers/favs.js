@@ -1,16 +1,30 @@
-const favs = require("../utils/favorites");
+// const fs = require('fs');
+// const writer = fs.createWriteStream('/src/utils/favor.txt')
+
+let { favorites } = require("../utils/favorites");
 
 function getFavs(req, res) {
   if (favorites.length > 0) {
+    console.log('enviando favoritos');
     res.status(200).json(favorites);
   } else {
-    res.status(400).send("No existen favoritos aun!");
+    console.log('no hay favoritos aun');
+    res.status(403).json({err: "No existen favoritos aun!"});
   }
 }
 
 function postFav(req, res) {
-  favs.push(req.body);
-  res.status(200).json(favs);
+  favorites.push(req.body);
+  res.status(200).json(favorites);
 }
 
-module.exports = { getFavs, postFav };
+function deleteFav(req, res) {
+  const {id} = req.params;
+  console.log(`borrando ${id}`);
+   favorites = favorites.filter((ch) => ch.id.toString() !== id.toString());
+  //  writer.write(JSON.stringify(favorites));
+  res.status(200).json(favorites);
+  
+}
+
+module.exports = { getFavs, postFav, deleteFav };

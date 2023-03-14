@@ -52,7 +52,6 @@ function SearchBar({onSearch, clearCards}) {
     } else {
       //dispatch(addCharToTable(char.charAddId));
       //lo adiciona al estado global
-      console.log(`adicionando el id`);
       setChar({ ...char, inputTxt: "" });
       //borra la caja de texto de busqueda:
       onSearch(char.charAddId);
