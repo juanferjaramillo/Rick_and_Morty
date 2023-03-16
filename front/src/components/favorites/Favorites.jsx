@@ -6,29 +6,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Favorites() {
-  // const myFavIds = useSelector((stateG) => stateG.myFavorites);
-  // traer el array de id de los caracters favoritos
-
-  const [myFavs, setMyFavs] = useState([]);
-
-  useEffect(
-  axios(`http://localhost:3001/rickandmorty/fav`)
-    .then((char) => {
-     const fav = char.data;
-     console.log(fav);
-     setMyFavs([fav]);
-   
-  console.log("favoritos: ");
-  console.log(myFavs.length);
-  
-  if (myFavs.length <=0) return null;
+  const myFavIds = useSelector((stateG) => stateG.myFavorites);
+  //traer el array de id de los caracters favoritos
 
   return (
     <>
       <h1>Mis Favoritos</h1>
       <div className={style.divFav}>
-    
-      {myFavs.forEach((g) => {        
+        {myFavIds.forEach((g) => {
           <Card
             key={g.id}
             id={g.id} //identificador unico del tag
@@ -38,13 +23,10 @@ function Favorites() {
             image={g.image}
             //onClose={char.onClose}
             //updateIdDetail={char.updateDetail}
-          />})}
+          />;
+        })}
       </div>
     </>
   );
-})
-.catch((err) => console.log(err))
-,[])
-
 }
 export default Favorites;
