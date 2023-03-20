@@ -10,8 +10,9 @@ import Form from "./components/form/Form.jsx";
 import Filtered from "./components/filtered/filtered";
 import { useDispatch } from "react-redux";
 import { addCharToTable } from "./redux/actions";
+import { getAllFavorites } from "./redux/actions";
 import Favorites from "./components/favorites/Favorites";
-import axios from 'axios'
+import axios from "axios";
 
 // const URL_BASE = "https://be-a-rym.up.railway.app/api";
 // const URL_SEP1 = "/character/";
@@ -32,8 +33,8 @@ function App() {
     // fetch(`${URL_BASE}${URL_SEP1}${id}${URL_SEP2}${API_KEY}`)
     // fetch(`http://127.0.0.1:3001/rickandmorty/character/${id}`)
     // fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
-    axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
 
+    axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
       .then((datos) => {
         let ar = [...characters, datos.data]; //nuevo array con los caracteres existentes unidos al nuevo.
         setCharacters(ar);
@@ -46,23 +47,9 @@ function App() {
       });
   };
 
-  //let newCharOnTable = serverFetch(id);
-
-  // const onClose = (item) => {
-  //   let arr = characters.filter((elem) => elem.id !== item);
-  //   setCharacters(arr);
-  // };
-
   const clearCards = () => {
     setCharacters([]);
   };
-
-  // React.useEffect(useNavigate(`/detail/${charId}`), [charId]);
-
-  // const updateDetail = (id) => {
-  //   setcharId(id);
-  //   console.log(id);
-  // };
 
   return (
     <div className={style.App}>

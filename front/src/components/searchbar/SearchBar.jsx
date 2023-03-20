@@ -3,6 +3,8 @@ import style from "./searchbar.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearTable } from "../../redux/actions";
+import { useNavigate } from 'react-router-dom';
+import { getAllFavorites } from '../../redux/actions';
 
 function SearchBar({onSearch, clearCards}) {
   //props === { onSearch: }
@@ -84,6 +86,14 @@ function SearchBar({onSearch, clearCards}) {
     clearCards(); //borra cards del estado local en App
   };
 
+
+  const navigate = useNavigate();
+  function handleFavBot(event) {
+    console.log('click en Fav button');
+     dispatch(getAllFavorites());
+    navigate("/rickandmorty/favorites/")
+  }
+
   return (
     <>
       <div className={style.searchCl}>
@@ -113,10 +123,13 @@ function SearchBar({onSearch, clearCards}) {
             Clear the table!
           </button>
 
-          <button className={style.boton}>
+          {/* <button className={style.boton}>
             <Link to="/rickandmorty/favorites/" className={style.link}>
               My Favorites
             </Link>
+          </button> */}
+          <button className={style.boton} onClick={handleFavBot}>
+              My Favorites
           </button>
         </div>
       </div>

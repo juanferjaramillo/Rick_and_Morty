@@ -1,7 +1,7 @@
 //import action types
 import { ADD_CHAR_TO_TABLE, ADD_TO_FAVORITES } from "./actions";
 import { REMOVE_FROM_FAVORITES, REMOVE_CHAR_FROM_TABLE } from "./actions";
-import { SET_LOGIN, CLEAR_TABLE, FILTER, ORDER } from "./actions";
+import { SET_LOGIN, CLEAR_TABLE, FILTER, ORDER, GET_ALL_FAVORITES } from "./actions";
 
 const initialState = {
   logedin: false,
@@ -11,13 +11,23 @@ const initialState = {
 };
 
 const reducer = (stateG = initialState, action) => {
+  console.log(action.type);
+  console.log(action.payload);
   switch (action.type) {
+
     case SET_LOGIN:
       return {
         ...stateG,
         logedin: true,
       };
 
+    case GET_ALL_FAVORITES:
+      console.log(action.payload);
+      return{
+        ...stateG,
+        myFavorites: action.payload
+      };  
+    
     case ADD_TO_FAVORITES:
       console.log(`Reducer adicionando el ${action.payload}`);
       return {

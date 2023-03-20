@@ -12,7 +12,8 @@ import {
 
 function Card(props) {
   const [isFav, setIsFav] = useState(false);
-
+  const dispatch = useDispatch();
+  console.log("estamos en Card");
   const myFav = useSelector((stateG) => stateG.myFavorites);
   //arreglo de caracteres
 
@@ -23,8 +24,6 @@ function Card(props) {
         : setIsFav(false),
     []
   );
-
-  const dispatch = useDispatch();
 
   const handleFavorite = () => {
     //console.log(props.id);
@@ -49,7 +48,8 @@ function Card(props) {
     <div
       className={style.cardCl}
       style={{ transform: `rotate(${Math.round(20 - 40 * Math.random())}deg)` }}
-      key={props.id}
+      key={props.key}
+      id={props.id}
     >
       {isFav ? (
         <button className={style.fav} onClick={handleFavorite}>

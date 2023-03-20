@@ -1,6 +1,7 @@
 import axios from "axios";
 //import { useDispatch } from "react-redux";
 export const SET_LOGIN = "SET_LOGIN";
+export const GET_ALL_FAVORITES = "GET_ALL_FAVORITES";
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
 export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const ADD_CHAR_TO_TABLE = "ADD_CHAR_TO_TABLE";
@@ -15,7 +16,17 @@ export const setLogin = () => {
   };
 };
 
-//crear la accion para pedir los favoritos al back
+export const getAllFavorites = (favs) => {
+  console.log('getAllFavoritesss');
+//solitita todos los faoritos al backend y actualiza el estado global
+  return async function() {
+    const response = await axios.get("http://localhost:3001/rickandmorty/fav")
+    return {
+      type: GET_ALL_FAVORITES,
+      payload: response.data //array de favorites
+    }
+  }};
+
 
 export function addFavorite(char) {
   //enviar el nuevo fav al back y ademas adicionarlo al global state

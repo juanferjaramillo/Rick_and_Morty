@@ -14,7 +14,6 @@ function Cards({ characters, onClose, updateDetail, logedin }) {
 
   const navigate = useNavigate();
 
-  // useEffect(() => (logedin ? console.log('acceso OK') : navigate("/")), [characters]);
   useEffect(
     () => (logedin ? console.log("acceso OK") : navigate("/")),
     [charsOnTable]
