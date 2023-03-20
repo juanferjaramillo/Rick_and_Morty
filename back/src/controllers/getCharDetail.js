@@ -13,12 +13,12 @@ function getCharDetail(req, res) {
       res
         .status(200)
         .json(character)
-    })
+})
     .catch((err) => {
       res
         .status(500)
-       .json(character)
-    });
+       .json(err.message)
+});
 };
 
 module.exports = {getCharDetail};

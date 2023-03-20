@@ -22,15 +22,15 @@ const reducer = (stateG = initialState, action) => {
       console.log(`Reducer adicionando el ${action.payload}`);
       return {
         ...stateG,
-        myFavorites: [...stateG.myFavorites, action.payload],
+        myFavorites: action.payload,
       };
+
     case REMOVE_FROM_FAVORITES:
       return {
         ...stateG,
-        myFavorites: stateG.myFavorites.filter(
-          (elem) => elem.id !== action.payload
-        ),
+        myFavorites: action.payload
       };
+
     case ADD_CHAR_TO_TABLE:
       return {
         ...stateG,

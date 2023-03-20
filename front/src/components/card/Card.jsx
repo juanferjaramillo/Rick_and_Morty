@@ -34,7 +34,7 @@ function Card(props) {
       dispatch(removeFavorite(props.id));
     } else {
       setIsFav(true);
-      addFavorite(props);
+      dispatch(addFavorite(props));
     }
     //console.log(myFav);
   };
