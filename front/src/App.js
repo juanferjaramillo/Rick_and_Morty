@@ -36,8 +36,9 @@ function App() {
 
     axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
       .then((datos) => {
-        let ar = [...characters, datos.data]; //nuevo array con los caracteres existentes unidos al nuevo.
-        setCharacters(ar);
+        //nuevo array con los caracteres existentes unidos al nuevo.
+        setCharacters([...characters, datos.data]);
+        //lo adiciona al estado local
         dispatch(addCharToTable(datos.data));
         //incluye el nuevo character en el estado global.
       })

@@ -10,7 +10,6 @@ function Home({characters, onClose, updateDetail}) {
   const charsOnTable = useSelector(stateG => stateG.charsOnTable);
   return (
     <div>
-      
       {charsOnTable.length === 0 ? <Splash /> : <Cards />} 
     </div>
   );

@@ -17,16 +17,17 @@ export const setLogin = () => {
 };
 
 export const getAllFavorites = (favs) => {
-  console.log('getAllFavoritesss');
-//solitita todos los faoritos al backend y actualiza el estado global
-  return async function() {
-    const response = await axios.get("http://localhost:3001/rickandmorty/fav")
-    return {
+  //solicita todos los faoritos al backend y actualiza el estado global
+  console.log("Action getAllFavorites");
+  return async function (dispatch) {
+    const response = await axios.get("http://localhost:3001/rickandmorty/fav");
+    console.log(response.data);
+    return dispatch({
       type: GET_ALL_FAVORITES,
-      payload: response.data //array de favorites
-    }
-  }};
-
+      payload: response.data, //array de favorites
+    });
+  };
+};
 
 export function addFavorite(char) {
   //enviar el nuevo fav al back y ademas adicionarlo al global state
@@ -64,6 +65,7 @@ export const addCharToTable = (char) => {
     payload: char,
   };
 };
+
 export const removeCharFromTable = (id) => {
   return {
     type: REMOVE_CHAR_FROM_TABLE,

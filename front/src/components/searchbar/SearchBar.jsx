@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import style from "./searchbar.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearTable } from "../../redux/actions";
-import { useNavigate } from 'react-router-dom';
-import { getAllFavorites } from '../../redux/actions';
+import { useNavigate } from "react-router-dom";
+import { getAllFavorites } from "../../redux/actions";
 
-function SearchBar({onSearch, clearCards}) {
+function SearchBar({ onSearch, clearCards }) {
   //props === { onSearch: }
   //recibe por props una función onSearch, dicha función recibe un parámetro (que más adelante será el ID del personaje tomado desde el input
 
@@ -42,9 +42,6 @@ function SearchBar({onSearch, clearCards}) {
     let exist = false;
     charsOnTable.forEach((elem) => {
       if (elem.id.toString() === char.charAddId) {
-        //console.log('iguales');
-        //console.log(toString(elem.id));
-        //console.log(char.charAddId);
         exist = true;
       }
     });
@@ -52,11 +49,10 @@ function SearchBar({onSearch, clearCards}) {
     if (exist) {
       alert("😲 Ese personaje ya lo tienes! 😲");
     } else {
-      //dispatch(addCharToTable(char.charAddId));
-      //lo adiciona al estado global
       setChar({ ...char, inputTxt: "" });
       //borra la caja de texto de busqueda:
       onSearch(char.charAddId);
+      //lo adiciona al estado global
     }
   };
 
@@ -85,13 +81,12 @@ function SearchBar({onSearch, clearCards}) {
     dispatch(clearTable());
     clearCards(); //borra cards del estado local en App
   };
-
-
+  
   const navigate = useNavigate();
   function handleFavBot(event) {
-    console.log('click en Fav button');
-     dispatch(getAllFavorites());
-    navigate("/rickandmorty/favorites/")
+    console.log("click en Fav button");
+    //dispatch(getAllFavorites());
+    navigate("/rickandmorty/favorites/");
   }
 
   return (
@@ -129,7 +124,7 @@ function SearchBar({onSearch, clearCards}) {
             </Link>
           </button> */}
           <button className={style.boton} onClick={handleFavBot}>
-              My Favorites
+            My Favorites
           </button>
         </div>
       </div>

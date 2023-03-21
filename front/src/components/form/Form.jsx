@@ -14,18 +14,19 @@ const psw_auth = "juan123";
 function Form({ setLogin }) {
   //const [access, setAccess] = React.useState(false);
 
-  const navigate = useNavigate(); //se asigna para poder usarla dentro de la funcion login
+  const navigate = useNavigate();
+  //se asigna para poder usarla dentro de la funcion login
   const dispatch = useDispatch();
 
   const login = (userData, event) => {
     //setea el estado de login
     event.preventDefault();
-    // if (  getAllFavorites();
+    // if (
     //   userData.username === usr_auth &&
     //   userData.password === psw_auth
     //   ) {
-      dispatch(setLogin);
-      //dispatch(getAllFavorites)
+    dispatch(setLogin);
+    dispatch(getAllFavorites());
     navigate("/home");
     //   }
   };

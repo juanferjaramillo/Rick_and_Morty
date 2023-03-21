@@ -22,6 +22,7 @@ const reducer = (stateG = initialState, action) => {
       };
 
     case GET_ALL_FAVORITES:
+      console.log('reducer GET_ALL_FAVORITES');
       console.log(action.payload);
       return{
         ...stateG,
