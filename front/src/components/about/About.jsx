@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../card/Card";
 import style from "./about.module.css";
 import pict from "../../utils/matiJuan.jpg";
-
+ 
 function About() {
   return (
     <div className={style.container}>
