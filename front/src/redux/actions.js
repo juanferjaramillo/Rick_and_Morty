@@ -20,8 +20,9 @@ export const getAllFavorites = (favs) => {
   //solicita todos los faoritos al backend y actualiza el estado global
   console.log("Action getAllFavorites");
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/rickandmorty/fav");
     console.log(response.data);
+    const response = await axios.get("https://rym-server.onrender.com/rickandmorty/fav");
+    // const response = await axios.get("https://localhost:3001/rickandmorty/fav");
     return dispatch({
       type: GET_ALL_FAVORITES,
       payload: response.data, //array de favorites
@@ -33,7 +34,8 @@ export function addFavorite(char) {
   //enviar el nuevo fav al back y ademas adicionarlo al global state
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/rickandmorty/fav",
+      "https://rym-server.onrender.com/rickandmorty/fav",
+      // "http://localhost:3001/rickandmorty/fav",
       char
     );
     // console.log("nuevos favoritos en back:");
@@ -50,7 +52,8 @@ export const removeFavorite = (id) => {
   //enviar el fav a remover al back y ademas removerlo del global state (trayendo la nueva lista de favs del back?)
   return async function (dispatch) {
     const response = await axios.delete(
-      `http://localhost:3001/rickandmorty/fav/${id}`
+      `https://rym-server.onrender.com/rickandmorty/fav/${id}`
+      // `http://localhost:3001/rickandmorty/fav/${id}`
     );
     return dispatch({
       type: REMOVE_FROM_FAVORITES,

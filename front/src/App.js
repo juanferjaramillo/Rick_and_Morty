@@ -34,7 +34,8 @@ function App() {
     // fetch(`http://127.0.0.1:3001/rickandmorty/character/${id}`)
     // fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
 
-    axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
+    axios(`https://rym-server.onrender.com/rickandmorty/onsearch/${id}`)
+    // axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
       .then((datos) => {
         //nuevo array con los caracteres existentes unidos al nuevo.
         setCharacters([...characters, datos.data]);
