@@ -1,0 +1,18 @@
+const { DataTypes } = require("sequelize");
+
+const gendermodel = (rymdb) => {
+  rymdb.define("gender", {
+    key: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    gender: {
+      // type: DataTypes.ENUM("unknown", "male", "female"),
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+  });
+};
+
+module.exports = gendermodel;

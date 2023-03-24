@@ -1,0 +1,17 @@
+const { DataTypes } = require("sequelize");
+
+const speciesmodel = (rymdb) => {
+  rymdb.define("species", {
+    key: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: false,
+    },
+    species: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+  });
+};
+
+module.exports = speciesmodel;
