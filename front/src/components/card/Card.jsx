@@ -51,24 +51,29 @@ function Card(props) {
       key={props.key}
       id={props.id}
     >
-      {isFav ? (
-        <button className={style.fav} onClick={handleFavorite}>
-          ❤️
+      <div className={style.bCard}>
+        <div>
+        {isFav ? (
+          <button className={style.fav} onClick={handleFavorite}>
+            ❤️
+          </button>
+        ) : (
+          <button className={style.fav} onClick={handleFavorite}>
+            🤍
+          </button>
+        )}
+</div>
+<div>
+        <button
+          className={style.botonX}
+          onClick={() => onClose(props.id)}
+          id={props.id}
+        >
+          {" "}
+          X{" "}
         </button>
-      ) : (
-        <button className={style.fav} onClick={handleFavorite}>
-          🤍
-        </button>
-      )}
-
-      <button
-        className={style.botonX}
-        onClick={() => onClose(props.id)}
-        id={props.id}
-      >
-        {" "}
-        X{" "}
-      </button>
+        </div>
+   </div>
 
       <span className={style.tituloName}>{props.name}</span>
 

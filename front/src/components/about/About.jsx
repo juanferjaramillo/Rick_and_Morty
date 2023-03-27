@@ -11,8 +11,8 @@ function About() {
         key={98588980}
         id={"000"} //identificador unico del tag
         name={"Juanfer Jaramillo"}
-        species={"Javascript"}
-        gender={"Full Stack Developer"}
+        species={"Full Stack"}
+        gender={"Javascript Developer"}
         image={pict}
       />
       <h3>Web app created using React and Redux </h3>

@@ -1,7 +1,7 @@
 .cardCl {
   display: flex;
   flex-direction: column;
-  padding: 2vw;
+  padding: 1vw;
   background-image: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701888978.jpg);
   border: 0.2vw solid darksalmon;
   border-radius: 10%;
@@ -31,8 +31,16 @@
     max-width: 1%;
   }
   100% {
-    max-width: 15%; 
+    max-width: 15%;
   }
+}
+
+.bCard {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .cardUnmountCl {
@@ -58,14 +66,14 @@
     max-width: 30%;
   }
   100% {
-    max-width: 1%; 
+    max-width: 1%;
   }
 }
 
 .imgChar {
   border: 0.2vw solid darksalmon;
   border-radius: 50%;
-  max-width:100%;
+  max-width: 100%;
 }
 
 .imgChar:hover {
@@ -85,9 +93,10 @@
 }
 
 .botonX {
-  margin-top: 1%;
+  margin-top: 0%;
   margin-bottom: 3%;
-  margin-left: 90%;
+  /* margin-left: 80%; */
+
   min-width: fit-content;
   border-radius: 50%;
   border-color: lightblue;
@@ -103,7 +112,7 @@
 .titulo2 {
   color: #d0f4de;
   font-size: 2vw;
-  margin-top: 2vw;
+  margin-top: 0vw;
 }
 
 .tituloName {
@@ -144,5 +153,5 @@
 .fav {
   max-width: fit-content;
   border-radius: 20%;
-  background-color:rgb(47, 47, 47);
+  background-color: rgb(47, 47, 47);
 }
