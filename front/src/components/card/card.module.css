@@ -5,7 +5,8 @@
   background-image: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701888978.jpg);
   border: 0.2vw solid darksalmon;
   border-radius: 10%;
-  max-width: 30%;
+  max-width: 15%;
+  max-height: fit-content;
   margin: auto;
   margin-bottom: 5%;
   animation-name: expandCard;
@@ -30,7 +31,7 @@
     max-width: 1%;
   }
   100% {
-    max-width: 30%; 
+    max-width: 15%; 
   }
 }
 
@@ -64,7 +65,7 @@
 .imgChar {
   border: 0.2vw solid darksalmon;
   border-radius: 50%;
-  max-width:25vw;
+  max-width:100%;
 }
 
 .imgChar:hover {
@@ -87,8 +88,6 @@
   margin-top: 1%;
   margin-bottom: 3%;
   margin-left: 90%;
-  width: 3vw;
-  height: 3vw;
   min-width: fit-content;
   border-radius: 50%;
   border-color: lightblue;
@@ -109,9 +108,9 @@
 
 .tituloName {
   color: darkmagenta;
-  font-size: 2vw;
+  font-size: 1.5vw;
   rotate: -45deg;
-  margin-right: 60%;
+  margin-right: 40%;
   background-color: #e4c1f9;
   border-radius: 30%;
 }
@@ -125,12 +124,12 @@
     font-size: 3vw;
     margin-right: 50%;
   }
-  .botonX {
+  /* .botonX {
     font-size: 3vw;
     width: 6vw;
     height: 6vw;
     border-width: 0.3vw;
-  }
+  } */
   .cardCl {
     padding: 5vw;
   }
@@ -143,7 +142,7 @@
 }
 
 .fav {
-  max-width: 20%;
+  max-width: fit-content;
   border-radius: 20%;
   background-color:rgb(47, 47, 47);
 }

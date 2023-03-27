@@ -10,11 +10,13 @@ import axios from 'axios';
 
 function Detail() {
   const {id} = useParams();
+  console.log(id);
   const [charDetail, setCharDetail] = React.useState({});
 
   useEffect(() => {
   // fetch(`${URL_BASE}${URL_SEP1}${id}${URL_SEP2}${API_KEY}`)
-  axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
+  // axios(`http://localhost:3001/rickandmorty/onsearch/${id}`)
+  axios(`https://rym-server.onrender.com/rickandmorty/onsearch/${id}`)
   .then((item) => setCharDetail(item.data))
   .catch((error) => console.log(`NO FUNCIONO: ${error}`))
   }
